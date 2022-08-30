@@ -6,17 +6,18 @@ import Layout from '../components/layout/Layout';
 const About = () => {
     return (
         <div className="text-center m-5">
-            Welcome To Cottage Hospital Azumini Website
+            Welcome to About Page
         </div>
     );
 }
 
 export default About;
 
-About.getLayout = function getLayout(page: ReactElement) {
+About.getLayout = (page: ReactElement) => {
     return (
         <Layout>
             {page}
         </Layout>
     )
 }
+

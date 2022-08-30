@@ -5,17 +5,17 @@ import { ReactElement } from 'react';
 const Index = () => {
   return (
     <div className="text-center m-5">
-      Welcome To Cottage Hospital Azumini Website
+      Welcome To Home Page
     </div>
   );
 }
 
 export default Index;
 
-Index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = (page: ReactElement) => {
   return (
-    <Layout>
-      {page}
-    </Layout>
+      <Layout>
+          {page}
+      </Layout>
   )
 }
