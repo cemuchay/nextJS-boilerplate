@@ -1,12 +1,13 @@
 import styles from '../styles/Home.module.css';
 import Layout from '../components/layout/Layout';
 import { ReactElement } from 'react';
+import { Container } from 'react-bootstrap';
 
 const Index = () => {
   return (
-    <div className="text-center m-5">
-      Welcome To Home Page
-    </div>
+    <Container fluid>
+
+    </Container>
   );
 }
 
@@ -14,8 +15,8 @@ export default Index;
 
 Index.getLayout = (page: ReactElement) => {
   return (
-      <Layout>
-          {page}
-      </Layout>
+    <Layout>
+      {page}
+    </Layout>
   )
 }
