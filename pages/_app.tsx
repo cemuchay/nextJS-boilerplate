@@ -4,6 +4,7 @@ import SSRProvider from 'react-bootstrap/SSRProvider';
 import type { AppProps } from 'next/app'
 import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
+import ErrorBoundary from 'components/commons/ErrorBoundary/ErrorBoundary';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -18,9 +19,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return getLayout(
-    <SSRProvider>
-      <Component {...pageProps} />
-    </SSRProvider>
+    <ErrorBoundary>
+      <SSRProvider>
+        <Component {...pageProps} />
+      </SSRProvider>
+    </ErrorBoundary>
   )
 }
 
