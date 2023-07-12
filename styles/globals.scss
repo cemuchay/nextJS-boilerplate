@@ -1,3 +1,6 @@
+@import './helpers/variables';
+@import './helpers/mixins';
+
 html,
 body {
   padding: 0;
@@ -13,4 +16,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.section-header-div {
+  @include text-bg-white-black;
+}
+
+.section-header {
+  text-align: center;
+  padding: 10px;
 }

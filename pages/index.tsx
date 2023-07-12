@@ -5,20 +5,6 @@ import { Container } from "react-bootstrap";
 import HeadComponent from "components/headComponent/HeadComponent";
 import ReusableHeroSection from "components/HeroSection/HeroSection";
 
-async function getData() {
-   const res = await fetch('/api/hello')
-   // The return value is *not* serialized
-   // You can return Date, Map, Set, etc.
-  
-   // Recommendation: handle errors
-   if (!res.ok) {
-     // This will activate the closest `error.js` Error Boundary
-     throw new Error('Failed to fetch data')
-   }
-  
-   console.log(res.json())
-   return res.json()
- }
 
 const Index = () => {
    return (

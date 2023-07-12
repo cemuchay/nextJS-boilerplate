@@ -38,7 +38,7 @@ const ReusableNavbar: React.FC<ReusableNavbarProps> = ({ navLinks, logo }) => {
         <FiMenu />
       </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="ml-auto">
+        <Nav className="ms-auto text-center">
           {navLinks.map((link, index) => (
             <Link href={link.to} key={index}>
               <Nav.Link>{link.label}</Nav.Link>
