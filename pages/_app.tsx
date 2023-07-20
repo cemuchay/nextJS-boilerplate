@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import ErrorBoundary from 'components/commons/ErrorBoundary/ErrorBoundary';
+import { Analytics } from '@vercel/analytics/react';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -22,8 +23,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <ErrorBoundary>
       <SSRProvider>
         <Component {...pageProps} />
+        <Analytics />
       </SSRProvider>
     </ErrorBoundary>
+
   )
 }
 

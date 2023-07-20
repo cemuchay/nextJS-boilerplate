@@ -1,13 +1,13 @@
-import styles from "./Navbar.module.css";
+import styles from "./Navbar.module.scss";
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
-import { IconContext } from 'react-icons';
 import { FiMenu } from 'react-icons/fi';
 import Image from "next/image";
+import { Container } from "react-bootstrap";
 
 interface NavLink {
   to: string;
@@ -28,30 +28,43 @@ interface ReusableNavbarProps {
  */
 const ReusableNavbar: React.FC<ReusableNavbarProps> = ({ navLinks, logo }) => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Link href="/">
-        <Navbar.Brand>
-          {logo && <Image src={logo} alt="Logo" className="navbar-logo" />}
-        </Navbar.Brand>
-      </Link>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav">
-        <FiMenu />
-      </Navbar.Toggle>
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="ms-auto text-center">
-          {navLinks.map((link, index) => (
-            <Link href={link.to} key={index}>
-              <Nav.Link>{link.label}</Nav.Link>
-            </Link>
-          ))}
-        </Nav>
-      </Navbar.Collapse>
+    <Navbar collapseOnSelect expand="lg" className={styles.navbar}>
+      <Container>
+        <Link href="/" className="link">
+          <Navbar.Brand >
+            {logo && <Image src={logo} alt="Logo" className="navbar-logo" />}
+            Logo
+          </Navbar.Brand>
+        </Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav">
+          <FiMenu />
+        </Navbar.Toggle>
+        <Navbar.Collapse id="responsive-navbar-nav">
+
+          <Nav
+            className={`ms-auto mt-2 text-center text-uppercase mb-2 ${styles.navLink}`}
+            id="navlinkParent"
+          >
+            {navLinks.map((item, index) => {
+              return (
+                <Nav.Link
+                  key={index}
+                  className={styles.navLinkActive}
+                  href={item.to}
+                >
+                  {item.label}
+                </Nav.Link>
+              );
+            })}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };
 
 ReusableNavbar.propTypes = {
-   //@ts-ignore
+  //@ts-ignore
   navLinks: PropTypes.arrayOf(
     PropTypes.shape({
       to: PropTypes.string.isRequired,

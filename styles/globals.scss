@@ -26,3 +26,53 @@ a {
   text-align: center;
   padding: 10px;
 }
+
+.link {
+  cursor: pointer;
+
+  // disable underline and color chnage for all states
+  text-decoration: none !important;
+  color: $primary-text-color !important;
+
+  a,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited,
+  &:link {
+    text-decoration: none !important;
+    color: $primary-text-color !important;
+  }
+}
+
+.styledBackground {
+  background: $secondary-color;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+
+  .header {
+    padding-top: 30px;
+  }
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.header {
+  color: $primary-text-color;
+  font-weight: 800 !important;
+  user-select: none;
+  text-align: left;
+  font-family: $primary-font;
+
+  // add underline 
+  text-decoration: underline;
+  text-decoration-color: $primary-color;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}

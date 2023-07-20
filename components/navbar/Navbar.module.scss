@@ -1,2 +1,57 @@
 @import '../../styles/helpers/mixins';
 @import '../../styles/helpers/variables';
+
+
+.navbar,
+.navbarMobile {
+    background: none;
+
+    button :focus {
+        box-shadow: none;
+    }
+
+    .navLink {
+        a {
+            color: $primary-text-color !important;
+            font-weight: 400;
+            font-family: 'Fredoka One';
+        }
+
+        & :hover,
+        & :focus,
+        & :active,
+        & :visited {
+            color: $primary-text-color !important;
+            transform: scale(1.1);
+            text-decoration: underline;
+            text-decoration-color: $secondary-color;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 8px;
+        }
+
+
+    }
+
+
+    .toggler {
+        svg {
+            color: $primary-text-color !important;
+            border: none;
+        }
+
+        & :focus {
+            box-shadow: none;
+        }
+    }
+
+    .navLinkActive {
+
+        & :hover,
+        & :focus,
+        & :active,
+        & :visited {
+            color: pink !important;
+            transform: scale(1.1);
+        }
+    }
+}
